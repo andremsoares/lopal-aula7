@@ -61,7 +61,11 @@ chamados = [
 # 0 - Sair
 
 def usuario():
-  
+  nome = input("Qual o nome do usuário que deseja ver? ")
+  for chamado in chamados:
+    if chamado["usuario"] == nome:
+      print(chamado)
+    
 
 while True:
   print("LISTA DE CHAMADOS")

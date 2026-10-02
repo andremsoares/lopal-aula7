@@ -65,6 +65,12 @@ def usuario():
   for chamado in chamados:
     if chamado["usuario"] == nome:
       print(chamado)
+      
+def prioridade():
+  resposta = input("Qual o nível de prioridade que você fará a busca? ")
+  for chamado in chamados:
+    if chamado["prioridade"] == resposta:
+      print(chamado)
     
 
 while True:
@@ -82,6 +88,8 @@ while True:
   
   if opcao == "1":
     usuario()
+  elif opcao == "2":
+    prioridade()
   elif opcao == "0":
     print("Saindo do sistema...")
     break

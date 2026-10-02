@@ -77,6 +77,12 @@ def status():
   for chamado in chamados:
     if chamado["status"] == resposta:
       print(chamado)
+      
+def urgentes():
+  for chamado in chamados:
+    if chamado["prioridade"] == "Crítica" and chamado["status"] == "Aberto":
+      print(chamado)
+      
 
 while True:
   print("===== LISTA DE CHAMADOS =====")
@@ -97,6 +103,8 @@ while True:
     prioridade()
   elif opcao == "3":
     status()
+  elif opcao == "4":
+    urgentes()
   elif opcao == "0":
     print("Saindo do sistema...")
     break

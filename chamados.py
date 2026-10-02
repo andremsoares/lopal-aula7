@@ -59,3 +59,28 @@ chamados = [
 # 6 - Resolver chamado (Em progresso)
 # 7 - Fechar chamado
 # 0 - Sair
+
+def usuario():
+  
+
+while True:
+  print("LISTA DE CHAMADOS")
+  print("1 - Pesquisa por usuário")
+  print("2 - Pesquisa por prioridade")
+  print("3 - Pesquisa por status")
+  print("4 - Chamados urgentes")
+  print("5 - Abrir chamado")
+  print("6 - Resolver chamado")
+  print("7 - Fechar chamado")
+  print("0 - SAIR")
+  
+  opcao = input("Escolha sua opção: ")
+  
+  if opcao == "1":
+    usuario()
+  elif opcao == "0":
+    print("Saindo do sistema...")
+    break
+  else:
+    print("Opcão inválida. Tente novamente.")
+    

@@ -72,9 +72,14 @@ def prioridade():
     if chamado["prioridade"] == resposta:
       print(chamado)
     
+def status():
+  resposta = input("Qual o status da sua busca? ")
+  for chamado in chamados:
+    if chamado["status"] == resposta:
+      print(chamado)
 
 while True:
-  print("LISTA DE CHAMADOS")
+  print("===== LISTA DE CHAMADOS =====")
   print("1 - Pesquisa por usuário")
   print("2 - Pesquisa por prioridade")
   print("3 - Pesquisa por status")
@@ -90,6 +95,8 @@ while True:
     usuario()
   elif opcao == "2":
     prioridade()
+  elif opcao == "3":
+    status()
   elif opcao == "0":
     print("Saindo do sistema...")
     break

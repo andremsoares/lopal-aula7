@@ -82,7 +82,15 @@ def urgentes():
   for chamado in chamados:
     if chamado["prioridade"] == "Crítica" and chamado["status"] == "Aberto":
       print(chamado)
-      
+
+def abrir():
+  titulo = input("Qual o título do chamado? ")
+  prioridade = input("Qual a prioridade do chamado? ")
+  usuario = input("Qual o nome do usuário? ")
+  novo_chamado = {
+  
+  }
+  
 
 while True:
   print("===== LISTA DE CHAMADOS =====")

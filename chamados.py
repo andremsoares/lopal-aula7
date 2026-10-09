@@ -84,24 +84,30 @@ def urgentes():
       print(chamado)
 
 def abrir():
-  pergunta = input("Deseja abrir um novo chamado? (S/N) ").lower()
-  id = 50
-  while pergunta == "s":
-    titulo = input("Qual o título do chamado? ")
-    prioridade = input("Qual a prioridade do chamado? ")
-    usuario = input("Qual o nome do usuário? ")
-    id += 1
-    novo_chamado = {
-      "id": id,
-      "titulo": titulo,
-      "prioridade": prioridade,
-      "status": "Aberto",
-      "usuario": usuario
-    }
+  id = chamados[-1]["id"]
+  titulo = input("Qual o título do chamado? ")
+  prioridade = input("Qual a prioridade do chamado? ")
+  usuario = input("Qual o nome do usuário? ")
+  id += 1
+  novo_chamado = {
+    "id": id,
+    "titulo": titulo,
+    "prioridade": prioridade,
+    "status": "Aberto",
+    "usuario": usuario
+  }
     
-    chamados.append(novo_chamado)
-    print("Seu chamado foi aberto!")
-    pergunta = input("Deseja abrir um novo chamado? (S/N) ").lower()
+  chamados.append(novo_chamado)
+  print("Seu chamado foi aberto!")
+    
+def resolver():
+  resolver = input("Qual o título do item que será resolvido? ")
+  for chamado in chamados:
+    if resolver in chamado["titulo"]:
+      chamado["status"] = "Em progresso"
+  print("Seu chamado está em progresso!")
+    
+
 
 while True:
   print("===== LISTA DE CHAMADOS =====")
@@ -126,6 +132,8 @@ while True:
     urgentes()
   elif opcao == "5":
     abrir()
+  elif opcao == "6":
+    resolver()
   elif opcao == "0":
     print("Saindo do sistema...")
     break

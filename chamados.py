@@ -84,13 +84,24 @@ def urgentes():
       print(chamado)
 
 def abrir():
-  titulo = input("Qual o título do chamado? ")
-  prioridade = input("Qual a prioridade do chamado? ")
-  usuario = input("Qual o nome do usuário? ")
-  novo_chamado = {
-  
-  }
-  
+  pergunta = input("Deseja abrir um novo chamado? (S/N) ").lower()
+  id = 50
+  while pergunta == "s":
+    titulo = input("Qual o título do chamado? ")
+    prioridade = input("Qual a prioridade do chamado? ")
+    usuario = input("Qual o nome do usuário? ")
+    id += 1
+    novo_chamado = {
+      "id": id,
+      "titulo": titulo,
+      "prioridade": prioridade,
+      "status": "Aberto",
+      "usuario": usuario
+    }
+    
+    chamados.append(novo_chamado)
+    print("Seu chamado foi aberto!")
+    pergunta = input("Deseja abrir um novo chamado? (S/N) ").lower()
 
 while True:
   print("===== LISTA DE CHAMADOS =====")
@@ -113,6 +124,8 @@ while True:
     status()
   elif opcao == "4":
     urgentes()
+  elif opcao == "5":
+    abrir()
   elif opcao == "0":
     print("Saindo do sistema...")
     break

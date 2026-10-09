@@ -63,19 +63,19 @@ chamados = [
 def usuario():
   nome = input("Qual o nome do usuário que deseja ver? ")
   for chamado in chamados:
-    if chamado["usuario"] == nome:
+    if nome.lower() in chamado["usuario".lower()]:
       print(chamado)
       
 def prioridade():
   resposta = input("Qual o nível de prioridade que você fará a busca? ")
   for chamado in chamados:
-    if chamado["prioridade"] == resposta:
+    if resposta.lower() in chamado["titulo".lower()]:
       print(chamado)
     
 def status():
   resposta = input("Qual o status da sua busca? ")
   for chamado in chamados:
-    if chamado["status"] == resposta:
+    if resposta.lower() in chamado["status".lower()]:
       print(chamado)
       
 def urgentes():
@@ -101,13 +101,18 @@ def abrir():
   print("Seu chamado foi aberto!")
     
 def resolver():
-  resolver = input("Qual o título do item que será resolvido? ")
+  resposta = input("Qual o título do chamado que será resolvido? ")
   for chamado in chamados:
-    if resolver in chamado["titulo"]:
+    if resposta.lower() == chamado["titulo".lower()]:
       chamado["status"] = "Em progresso"
   print("Seu chamado está em progresso!")
     
-
+def fechar():
+  resposta = input("Qual o título do chamado que está resolvido? ")
+  for chamado in chamados:
+    if resposta.lower() == chamado["titulo".lower()]:
+      chamado["status"] = "Fechado"
+  print("Seu chamado foi fechado!")
 
 while True:
   print("===== LISTA DE CHAMADOS =====")
@@ -134,6 +139,8 @@ while True:
     abrir()
   elif opcao == "6":
     resolver()
+  elif opcao == "7":
+    fechar()
   elif opcao == "0":
     print("Saindo do sistema...")
     break
